@@ -1,76 +1,126 @@
+var util = require('../../utils/util')
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-      imgUrls:[
-          'http://1.img.dianjiangla.com/uploads/a3b1049aa3bc00c35228071a108a723a506219.jpg',
-          'http://2.img.dianjiangla.com/uploads/58263799205c1262e129c77dd9e04280494424.jpg',
-          'http://3.img.dianjiangla.com/uploads/1d6a35a4a970560b71127986c78b1653391418.jpg'
-      ],
-      indicatorDots:true,
-      autoplay:true,
-      circular:true,
-      vertical:true,
-      interval:5000,
-      duration:100
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        isShowBanner: false,
+        imgUrls: [],
+        indicatorDots: true,
+        autoplay: true,
+        circular: true,
+        vertical: true,
+        interval: 5000,
+        duration: 100,
+        isShowRecommendDesigner: false,
+        recommendDesigners: [],
 
-  },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    
-  },
+    },
+    getRecommendDesigner: function () {
+        var that = this
+        wx.request({
+            url: util.api('/app/index/recommend'),
+            method: 'GET',
+            data: {},
+            success: function (e) {
+                if (e.data.status != 200) {
+                    that.setData({
+                        isShowRecommendDesigner: false,
+                        recommendDesigners: [],
+                    })
+                    return;
+                }
+                that.setData({
+                    isShowRecommendDesigner: true,
+                    recommendDesigners: e.data.data,
+                })
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
-  },
+            }
+        })
+    },
+    // 获取banner数据
+    getBanner: function () {
+        var that = this
+        wx.request({
+            url: util.api('/common/config/get'),
+            method: 'GET',
+            data: {
+                key: "bannerkey"
+            },
+            success: function (e) {
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
+                if (e.data.status != 200) {
+                    that.setData({
+                        isShowBanner: false,
+                        imgUrls: []
+                    })
+                    return;
+                }
+                that.setData({
+                    isShowBanner: true,
+                    imgUrls: JSON.parse(e.data.data),
+                })
+            }
+        })
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
-  },
+    },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
-  },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        this.getBanner()
+        this.getRecommendDesigner();
+    },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
+    },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
-  }
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+
+    }
 })

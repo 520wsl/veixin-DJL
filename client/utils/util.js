@@ -1,3 +1,4 @@
+var config = require('../config')
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -39,4 +40,8 @@ var showModel = (title, content) => {
     })
 }
 
-module.exports = { formatTime, showBusy, showSuccess, showModel }
+var api = function(urlName = ''){
+    return config.service.apiUrl+urlName || '';
+}
+
+module.exports = { formatTime, showBusy, showSuccess, showModel, api}

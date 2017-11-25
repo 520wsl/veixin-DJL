@@ -24,7 +24,7 @@ var config = {
         uploadUrl: `${host}/weapp/upload`,
 
         // 点将啦数据接口 api
-        apiUrl:'http://m.dianjiangla.com/api'
+        apiUrl:'http://www.dianjiangla.com/api'
     }
 };
 

@@ -1,19 +1,92 @@
 .banner {
-     width: 100%;
-      height: 190rpx; 
+    width: 100%;
+    height: 190rpx;
 }
+
 .banner image {
-     width: 100%;
-      height: 100%; 
+    width: 100%;
+    height: 100%;
+}
+
+.main {
+    width: 650rpx;
+    margin: auto;
 }
 
 .recommend_designer {
-    padding: 0 17rpx;
-
+    overflow: hidden;
 }
-.recommend_designer .title{
+
+.recommend_designer .title {
     font-size: 22rpx;
     height: 45rpx;
     line-height: 45rpx;
     color: #f54203;
+}
+
+.recommend_designer .designers {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.recommend_designer .item-designers {
+    width: 315rpx;
+    height: 400rpx;
+}
+
+.recommend_designer .pic {
+    width: 100%;
+    height: 315rpx;
+    overflow: hidden;
+}
+
+.recommend_designer .pic image {
+    width: 100%;
+}
+
+.recommend_designer .info {
+    background-color: #f7f7f7;
+}
+
+.recommend_designer .name {
+    font-size: 20rpx;
+    color: #090909;
+    padding-left: 17rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    display: flex;
+}
+
+.recommend_designer .name .icon {
+    width: 30rpx;
+    height: 40rpx;
+}
+
+.recommend_designer .name .icon image {
+    width: 20rpx;
+    height: 20rpx;
+}
+
+.recommend_designer .name .txt {
+    overflow: hidden;
+}
+
+.recommend_designer .name .money {
+    color: #f54203;
+}
+
+.btn_lang {
+    background-color: #f54203;
+    border-radius: 0rpx;
+    height: 73rpx;
+    line-height: 73rpx;
+    font-size: 26rpx;
+    margin: 15rpx 0;
+    color: #fff;
+}
+.hr{
+    background-color: #f7f7f7;
+    height: 10rpx;
 }

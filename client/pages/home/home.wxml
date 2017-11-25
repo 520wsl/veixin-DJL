@@ -1,37 +1,115 @@
-<swiper class='banner' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" vertical="{{vertical}}" indicator-color="rgba(255, 255, 255, .5)" indicator-active-color="#f54203">
-    <block wx:for="{{imgUrls}}" wx:key="{{item}}">
+<swiper wx:if="{{isShowBanner}}" class='banner' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" vertical="{{vertical}}" indicator-color="rgba(255, 255, 255, .5)" indicator-active-color="#f54203">
+    <block wx:for="{{imgUrls}}" wx:key="{{item.imgUrl}}">
         <swiper-item>
-            <image mode="widthFix" src="{{item}}"></image>
+            <image lazy-load mode="widthFix" src="{{item.imgUrl}}"></image>
         </swiper-item>
     </block>
 </swiper>
 
-<view class='recommend_designer'>
+<view wx:if="{{isShowRecommendDesigner}}" class='recommend_designer main'>
     <text class='title'>推荐设计师</text>
+    <view class="designers">
+        <block wx:for="{{recommendDesigners}}" wx:if="{{index < 6}}" wx:key="{{item.id}}">
+            <view class="item-designers">
+                <view class="pic">
+                    <image mode="widthFix" src='{{item.image_url}}'></image>
+                </view>
+                <view class="info">
+                    <view class="name">
+                        <view class="icon">
+                            <image mode="aspectFit" src='http://3.img.dianjiangla.com/assets/app/icon-designer.png'></image>
+                        </view>
+                        <text class="txt">{{item.nickname}}</text>
+                    </view>
+                    <view class="name">
+                        <view class="icon">
+                            <image mode="aspectFit" src='http://1.img.dianjiangla.com/assets/app/icon-money.png'></image>
+                        </view>
+                        <text class="txt money">{{item.salary}}/月</text>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <button class='btn_lang'>查看更多</button>
+</view>
+
+<view class='hr'></view>
+
+<view class="main">
+    <text>点将啦为您保驾护航</text>
     <view>
         <view>
             <view>
-                <image src='http://3.img.dianjiangla.com/uploads/1498805277508_E8AEBEE8AEA1E5B888E5A4B4E5838F.jpg'></image>
+                <image src='http://2.img.dianjiangla.com/assets/app/design.png'></image>
             </view>
+            <text>专业设计</text>
+        </view>
+        <view>
             <view>
-                <view>
-                    <image src='http://2.img.dianjiangla.com/assets/app/icon-designer.png'></image>
-                </view>
-                <view>
-                    <text>赤兔马</text>
-                </view>
-
+                <image src='http://1.img.dianjiangla.com/assets/app/matching.png'></image>
             </view>
-             <view>
-                <view>
-                    <image src='http://2.img.dianjiangla.com/assets/app/icon-money.png'></image>
-                </view>
-                <view>
-                    <text>4300/月</text>
-                </view>
-
+            <text>极速匹配</text>
+        </view>
+        <view>
+            <view>
+                <image src='http://4.img.dianjiangla.com/assets/app/tryout.png'></image>
             </view>
-
+            <text>三天试用</text>
+        </view>
+        <view>
+            <view>
+                <image src='http://5.img.dianjiangla.com/assets/app/guarantee.png'></image>
+            </view>
+            <text>平台担保</text>
         </view>
     </view>
+</view>
+
+<view class='hr'></view>
+
+<view class="main">
+    <view>
+        <text>点将啦免费匹配设计师</text>
+        <view>
+            <text>已免费匹配 </text>
+            <text>1013次</text>
+        </view>
+    </view>
+    <form bindsubmit="formSubmit">
+        <view>
+            <text>店铺名称</text>
+            <view>
+                <input placeholder="填写您的店铺名称" />
+            </view>
+        </view>
+        <view>
+            <text>薪资预算</text>
+            <view>
+                <input placeholder="填写您的预算" />
+            </view>
+        </view>
+        <view>
+            <text>联系方式</text>
+            <view>
+                <input placeholder="手机号码/QQ/微信/信息安全仅工作人员可见" />
+            </view>
+        </view>
+        <view>
+            <text>验证码</text>
+            <view>
+                <input placeholder="输入图片验证码" />
+            </view>
+            <view></view>
+        </view>
+        <button formType="submit" class='btn_lang'>立即发布</button>
+    </form>
+    <button formType="submit" class='btn_lang' style="background-color:#5a5a5a;">登陆 | 注册</button>
+</view>
+
+<view class='main' style='font-size:18rpx;text-align:center;'>
+    <view>杭州四喜信息技术有限公司版权所有</view>
+    <view>备案号：浙ICP备12026518号-58</view>
+    <view>Copyright2008-2017 All rights reserved</view>
+    <view>地址：杭州市西湖区西湖科技园西园八路11号B座5楼</view>
 </view>
