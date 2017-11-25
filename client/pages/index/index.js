@@ -8,11 +8,19 @@ Page({
         userInfo: {},
         logged: false,
         takeSession: false,
-        requestResult: ''
+        requestResult: '',
+        test: {
+            msg: "测试数据，WXML模板",
+            isShow: false
+        },
+        map: {
+            latitude: 0,
+            longitude: 0,
+        }
     },
 
     // 用户登录示例
-    login: function() {
+    login: function () {
         if (this.data.logged) return
 
         util.showBusy('正在登录')
@@ -69,14 +77,14 @@ Page({
         var options = {
             url: config.service.requestUrl,
             login: true,
-            success (result) {
+            success(result) {
                 util.showSuccess('请求成功完成')
                 console.log('request success', result)
                 that.setData({
                     requestResult: JSON.stringify(result.data)
                 })
             },
-            fail (error) {
+            fail(error) {
                 util.showModel('请求失败', error);
                 console.log('request fail', error);
             }
@@ -97,7 +105,7 @@ Page({
             count: 1,
             sizeType: ['compressed'],
             sourceType: ['album', 'camera'],
-            success: function(res){
+            success: function (res) {
                 util.showBusy('正在上传')
                 var filePath = res.tempFilePaths[0]
 
@@ -107,7 +115,7 @@ Page({
                     filePath: filePath,
                     name: 'file',
 
-                    success: function(res){
+                    success: function (res) {
                         util.showSuccess('上传图片成功')
                         console.log(res)
                         res = JSON.parse(res.data)
@@ -117,13 +125,13 @@ Page({
                         })
                     },
 
-                    fail: function(e) {
+                    fail: function (e) {
                         util.showModel('上传图片失败')
                     }
                 })
 
             },
-            fail: function(e) {
+            fail: function (e) {
                 console.error(e)
             }
         })
@@ -216,5 +224,33 @@ Page({
         }
         util.showBusy('信道连接中...')
         this.setData({ tunnelStatus: 'closed' })
+    },
+
+    clickMe: function () {
+        this.setData({ test: { msg: '测试一下ClickME' } })
+
+        // console.log(this.data.test.msg)
+        // this.data.test.msg = "ssss"
+        // console.log(this.data.test.msg)
+        // this.setData(this.data)
+
+    },
+    getLocation: function () {
+        wx.getLocation({
+            success: (res) => {
+                let latitude = res.latitude // 经度
+                let longitude = res.longitude // 维度
+                //    this.setData(this.data)
+                this.setData({
+
+                    'map.latitude': latitude,
+                    'map.longitude': longitude
+                }
+                )
+
+            },
+        })
     }
+
+
 })

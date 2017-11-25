@@ -1,0 +1,37 @@
+<swiper class='banner' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" vertical="{{vertical}}" indicator-color="rgba(255, 255, 255, .5)" indicator-active-color="#f54203">
+    <block wx:for="{{imgUrls}}" wx:key="{{item}}">
+        <swiper-item>
+            <image mode="widthFix" src="{{item}}"></image>
+        </swiper-item>
+    </block>
+</swiper>
+
+<view class='recommend_designer'>
+    <text class='title'>推荐设计师</text>
+    <view>
+        <view>
+            <view>
+                <image src='http://3.img.dianjiangla.com/uploads/1498805277508_E8AEBEE8AEA1E5B888E5A4B4E5838F.jpg'></image>
+            </view>
+            <view>
+                <view>
+                    <image src='http://2.img.dianjiangla.com/assets/app/icon-designer.png'></image>
+                </view>
+                <view>
+                    <text>赤兔马</text>
+                </view>
+
+            </view>
+             <view>
+                <view>
+                    <image src='http://2.img.dianjiangla.com/assets/app/icon-money.png'></image>
+                </view>
+                <view>
+                    <text>4300/月</text>
+                </view>
+
+            </view>
+
+        </view>
+    </view>
+</view>

@@ -56,4 +56,20 @@
             <text>快速增加 CGI</text>
         </navigator>
     </view>
+
+    <!-- 测试代码 -->
+    <!-- 测试WXML模板 -->
+    <view>
+    {{test.msg}}
+    </view>
+    <!-- 测试WX:if -->
+    <view wx:if="{{test.isShow}}">wxif: {{test.isShow}}</view>
+
+    <!-- JS 交互逻辑 -->
+    <view>{{test.msg}}</view>
+    <button bindtap='clickMe'>点击我</button>
+
+    <!-- 测试 map -->
+    <map bindmarkertap='markertap' longitude="{{map.longitude}}" latitude="{{map.latitude}}" ></map>
+    <button bindtap='getLocation'>获取坐标</button>
 </view>
