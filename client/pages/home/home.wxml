@@ -1,11 +1,12 @@
-<swiper wx:if="{{isShowBanner}}" class='banner' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" vertical="{{vertical}}" indicator-color="rgba(255, 255, 255, .5)" indicator-active-color="#f54203">
+<!-- <swiper wx:if="{{isShowBanner}}" class='banner' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}"
+    duration="{{duration}}" circular="{{circular}}" vertical="{{vertical}}" indicator-color="rgba(255, 255, 255, .5)" indicator-active-color="#f54203">
     <block wx:for="{{imgUrls}}" wx:key="{{item.imgUrl}}">
         <swiper-item>
             <image lazy-load mode="widthFix" src="{{item.imgUrl}}"></image>
         </swiper-item>
     </block>
-</swiper>
-
+</swiper> -->
+<md-banner></md-banner>
 <view wx:if="{{isShowRecommendDesigner}}" class='recommend_designer main'>
     <text class='title'>推荐设计师</text>
     <view class="designers">
@@ -36,80 +37,95 @@
 
 <view class='hr'></view>
 
-<view class="main">
-    <text>点将啦为您保驾护航</text>
-    <view>
-        <view>
-            <view>
-                <image src='http://2.img.dianjiangla.com/assets/app/design.png'></image>
+<view class="main support">
+    <view class="title">
+        <text>点将啦为您保驾护航</text>
+    </view>
+    <view class="content">
+        <view class="item">
+            <view class="pic">
+                <image mode="aspectFit" src='http://2.img.dianjiangla.com/assets/app/design.png'></image>
             </view>
-            <text>专业设计</text>
+            <text class="txt">专业设计</text>
         </view>
-        <view>
-            <view>
-                <image src='http://1.img.dianjiangla.com/assets/app/matching.png'></image>
+        <view class="item">
+            <view class="pic">
+                <image mode="aspectFit" src='http://1.img.dianjiangla.com/assets/app/matching.png'></image>
             </view>
-            <text>极速匹配</text>
+            <text class="txt">极速匹配</text>
         </view>
-        <view>
-            <view>
-                <image src='http://4.img.dianjiangla.com/assets/app/tryout.png'></image>
+        <view class="item">
+            <view class="pic">
+                <image mode="aspectFit" src='http://4.img.dianjiangla.com/assets/app/tryout.png'></image>
             </view>
-            <text>三天试用</text>
+            <text class="txt">三天试用</text>
         </view>
-        <view>
-            <view>
-                <image src='http://5.img.dianjiangla.com/assets/app/guarantee.png'></image>
+        <view class="item">
+            <view class="pic">
+                <image mode="aspectFit" src='http://5.img.dianjiangla.com/assets/app/guarantee.png'></image>
             </view>
-            <text>平台担保</text>
+            <text class="txt">平台担保</text>
         </view>
     </view>
 </view>
 
 <view class='hr'></view>
 
-<view class="main">
-    <view>
-        <text>点将啦免费匹配设计师</text>
-        <view>
+<view class="main acquisition">
+    <view class="title">
+        <text class="name">点将啦免费匹配设计师</text>
+        <view class="info">
             <text>已免费匹配 </text>
-            <text>1013次</text>
+            <text class="num">1013次</text>
         </view>
     </view>
     <form bindsubmit="formSubmit">
-        <view>
-            <text>店铺名称</text>
-            <view>
+        <view class="item-form">
+            <view class="txt">
+                <text>店铺名称</text>
+            </view>
+            <view class="input">
                 <input placeholder="填写您的店铺名称" />
+                <icon size="20" type="success" />
             </view>
         </view>
-        <view>
-            <text>薪资预算</text>
-            <view>
+        <view class="item-form">
+            <view class="txt">
+                <text>薪资预算</text>
+            </view>
+            <view class="input">
                 <input placeholder="填写您的预算" />
+                <icon size="20" type="success" />
             </view>
         </view>
-        <view>
-            <text>联系方式</text>
-            <view>
+        <view class="item-form">
+            <view class="txt">
+                <text>联系方式</text>
+            </view>
+            <view class="input">
                 <input placeholder="手机号码/QQ/微信/信息安全仅工作人员可见" />
+                <icon size="20" type="success" />
             </view>
         </view>
-        <view>
-            <text>验证码</text>
-            <view>
-                <input placeholder="输入图片验证码" />
+        <view class="item-form">
+            <view class="txt">
+                <text>验证码</text>
             </view>
-            <view></view>
+            <view class="input">
+                <input placeholder="输入图片验证码" />
+                <icon size="20" type="success" />
+            </view>
+            <view class="qrcode">
+                <image src="http://www.dianjiangla.com/api/auth/verifycode?time=1511680684699"></image>
+            </view>
         </view>
         <button formType="submit" class='btn_lang'>立即发布</button>
     </form>
-    <button formType="submit" class='btn_lang' style="background-color:#5a5a5a;">登陆 | 注册</button>
+    <button formType="submit" class='btn_lang' style="background-color:#5a5a5a;">登录 | 注册</button>
 </view>
 
-<view class='main' style='font-size:18rpx;text-align:center;'>
+<view class='main dbinfo'>
+    <view>备案号：浙ICP备12026518号-58 Copyright2008-2017 All rights reserved</view>
     <view>杭州四喜信息技术有限公司版权所有</view>
-    <view>备案号：浙ICP备12026518号-58</view>
-    <view>Copyright2008-2017 All rights reserved</view>
     <view>地址：杭州市西湖区西湖科技园西园八路11号B座5楼</view>
 </view>

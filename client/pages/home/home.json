@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+        "md-banner":"/component/banner/banner"
+    }
+}

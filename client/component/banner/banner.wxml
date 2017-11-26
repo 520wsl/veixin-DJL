@@ -1,0 +1,8 @@
+<swiper wx:if="{{isShowBanner}}" class='banner' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}"
+duration="{{duration}}" circular="{{circular}}" vertical="{{vertical}}" indicator-color="rgba(255, 255, 255, .5)" indicator-active-color="#f54203">
+<block wx:for="{{imgUrls}}" wx:key="{{item.imgUrl}}">
+    <swiper-item>
+        <image lazy-load mode="widthFix" src="{{item.imgUrl}}"></image>
+    </swiper-item>
+</block>
+</swiper>

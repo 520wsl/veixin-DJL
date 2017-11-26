@@ -34,6 +34,7 @@
 .recommend_designer .item-designers {
     width: 315rpx;
     height: 400rpx;
+    margin-top: 15rpx;
 }
 
 .recommend_designer .pic {
@@ -89,4 +90,104 @@
 .hr{
     background-color: #f7f7f7;
     height: 10rpx;
+}
+.support{
+    overflow: hidden;
+}
+.support .title{
+    font-size:28rpx;
+    color: #f54203;
+    width: 100%;
+    height: 63rpx;
+    line-height: 63rpx;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+.support .content{
+    font-size: 19rpx;
+    color: #5a5a5a;
+    padding-top: 29rpx;
+    padding-bottom: 14rpx;
+    display: flex;
+    justify-content: space-around;
+    
+}
+.support .item{
+    text-align: center;
+    width: 80rpx;
+}
+.support .item .pic{
+    width: 53rpx;
+    height: 53rpx;
+    margin: auto;
+}
+.support .item .pic image{
+    width: 100%;
+    height: 100%;
+}
+.support .item .txt{
+    height: 30rpx;
+    line-height: 30rpx;
+}
+
+.acquisition{
+    padding: 25rpx 17rpx 0;
+}
+.acquisition .title{
+height: 78rpx;
+line-height: 78rpx;
+color: #5a5a5a;
+display: flex;
+justify-content: space-between;
+}
+.acquisition .title .name{
+    font-size: 26rpx;
+}
+.acquisition .title .info{
+    font-size: 20rpx;
+}
+.acquisition .title .info .num{
+    color: #f54203;
+}
+.acquisition .item-form{
+    display: flex;
+    justify-content: space-between;
+    height: 73rpx;
+    line-height: 73rpx;
+    margin-top: 25rpx;
+    border: 1px solid #e4e4e4;
+    font-size: 20rpx;
+}
+.acquisition .txt{
+    width: 105rpx;
+    text-align: center;
+    background-color: #f7f7f7;
+    border-right: 1px solid #e4e4e4;
+}
+.acquisition .input{
+    flex: 1;
+    display: flex;
+}
+.acquisition .input input{
+    height: 73rpx;
+    line-height: 73rpx;
+    flex: 1;
+    margin-left: 30rpx;
+}
+.acquisition .input icon{
+    margin-top: 15rpx;
+    margin-right: 10rpx;
+}
+.acquisition .qrcode{
+    width: 180rpx;
+    height: 73rpx;
+}
+.acquisition .qrcode image{
+    width: 100%;
+    height: 100%;
+}
+.dbinfo{
+    font-size:12rpx;
+    text-align:center;
+    color: #bbb;
 }
