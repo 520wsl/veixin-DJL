@@ -30,6 +30,7 @@ options:{
    */
   ready: function (options) {
     this.getBanner()
+    console.log(getApp)
   },
   /**
    * 组件的方法列表
@@ -38,28 +39,23 @@ options:{
     // 获取banner数据
     getBanner: function () {
       var that = this
-      wx.request({
-        url: util.api('/common/config/get'),
-        method: 'GET',
-        data: {
-          key: "bannerkey"
-        },
-        success: function (e) {
-
-          if (e.data.status != 200) {
-            that.setData({
-              isShowBanner: false,
-              imgUrls: []
-            })
-            return;
+      util.api.get(
+          '/common/config/get',
+          { key: "bannerkey"},
+          function(e){
+              if (e.status != 200) {
+                  that.setData({
+                      isShowBanner: false,
+                      imgUrls: []
+                  })
+                  return;
+              }
+              that.setData({
+                  isShowBanner: true,
+                  imgUrls: JSON.parse(e.data),
+              })
           }
-          that.setData({
-            isShowBanner: true,
-            imgUrls: JSON.parse(e.data.data),
-          })
-        }
-      })
-
+      )
     },
   }
 })

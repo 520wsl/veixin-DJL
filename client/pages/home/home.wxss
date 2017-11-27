@@ -1,18 +1,3 @@
-.banner {
-    width: 100%;
-    height: 190rpx;
-}
-
-.banner image {
-    width: 100%;
-    height: 100%;
-}
-
-.main {
-    width: 650rpx;
-    margin: auto;
-}
-
 .recommend_designer {
     overflow: hidden;
 }
