@@ -1,0 +1,57 @@
+.logo{
+    margin-top: 80rpx;
+    text-align: center;
+}
+.logo image{
+    width: 402rpx;
+    height: 101rpx;
+}
+.form{
+    margin: 0 57rpx;
+    margin-top: 150rpx;
+}
+.form .input-group{
+    width: 536rpx;
+    height: 70rpx;
+    display: flex;
+    border: 1px solid #dddeed;
+    overflow: hidden;
+    margin-top: 36rpx;
+    border-radius: 8rpx;
+}
+.form .input-group .pic{
+    width: 74rpx;
+    background-color: #dddeed;
+    text-align: center;
+}
+.form .input-group .pic image{
+    width: 30rpx;
+    height: 30rpx;
+    margin-top: 24rpx;
+}
+.form .input-group .input{
+    flex: 1;
+}
+.form .input-group .input input{
+    width: 100%;
+    height: 70rpx;
+    font-size: 24rpx;
+    color: #888;
+    padding-left:24rpx; 
+}
+.form .findpwd{
+    color: #f54203;
+    font-size: 24rpx;
+    text-align: right;
+    margin-top: 20rpx;
+    margin-bottom: 60rpx;
+}
+
+.keynav{
+    margin: 52rpx;
+    text-align: center;
+    font-size: 24rpx;
+}
+.color{
+    color: #f54203;
+}

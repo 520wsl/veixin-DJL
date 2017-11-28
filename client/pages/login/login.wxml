@@ -1,0 +1,39 @@
+<view class="main">
+    <view class="logo">
+        <image src="http://5.img.dianjiangla.com/assets/h5/logo.png" />
+    </view>
+    <form bindsubmit="formSubmit">
+        <view class="form">
+            <view class="input-group">
+                <view class="pic">
+                    <image src="http://2.img.dianjiangla.com/assets/h5/username.png" />
+                </view>
+                <view class="input">
+                    <input name="username" value="{{username}}" type="number" maxlength="11" placeholder="用户名/手机号" />
+                </view>
+            </view>
+            <view class="error">{{msg.username}}</view>
+            <view class="input-group">
+                <view class="pic">
+                    <image src="http://2.img.dianjiangla.com/assets/h5/password.png" />
+                </view>
+                <view class="input">
+                    <input name="pwd" value="{{pwd}}"  maxlength="11" password placeholder="请输入密码" />
+                </view>
+            </view>
+            <view class="error">{{msg.pwd}}</view>
+            <view class="findpwd">
+                <navigator open-type="switchTab" url="/pages/home/home">
+                    <text>忘记密码</text>
+                </navigator>
+            </view>
+            <button formType="submit" class='btn_lang'>登录</button>
+        </view>
+    </form>
+    <view class="keynav">
+        <navigator open-type="switchTab" url="/pages/home/home">
+            <text>没有账号？</text>
+            <text class="color">立即注册</text>
+        </navigator>
+    </view>
+</view>

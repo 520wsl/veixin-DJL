@@ -1,4 +1,3 @@
-var util = require('../../utils/util')
 // component/banner/banner.js
 Component({
   /**
@@ -30,7 +29,7 @@ options:{
    */
   ready: function (options) {
     this.getBanner()
-    console.log(getApp())
+    console.log(getApp()["api"])
   },
   /**
    * 组件的方法列表
@@ -39,7 +38,7 @@ options:{
     // 获取banner数据
     getBanner: function () {
       var that = this
-      util.api.get(
+      getApp()["api"].get(
           '/common/config/get',
           { key: "bannerkey"},
           function(e){

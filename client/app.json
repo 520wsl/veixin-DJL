@@ -1,8 +1,10 @@
 {
     "pages": [
         "pages/home/home",
+        "pages/login/login",
         "pages/index/index",
         "pages/addCgi/addCgi"
+        
     ],
     "window": {
         "backgroundColor": "#f54203",
@@ -12,10 +14,10 @@
         "navigationBarTextStyle": "white"
     },
     "tabBar": {
-        "color":"#5a5a5a",
-        "selectedColor":"#f54203",
-        "borderStyle":"black",
-        "backgroundColor":"#fff",
+        "color": "#5a5a5a",
+        "selectedColor": "#f54203",
+        "borderStyle": "black",
+        "backgroundColor": "#fff",
         "list": [
             {
                 "pagePath": "pages/home/home",
@@ -26,8 +28,8 @@
                 "text": "案例首页"
             },
             {
-                "pagePath": "pages/addCgi/addCgi",
-                "text": "CGI界面"
+                "pagePath": "pages/login/login",
+                "text": "登录页"
             },
             {
                 "pagePath": "pages/addCgi/addCgi",
@@ -38,7 +40,7 @@
     "networkTimeout": {
         "request": 10000,
         "downloadFile": 10000,
-        "uploadFile":10000
+        "uploadFile": 10000
     },
     "debug": true
 }

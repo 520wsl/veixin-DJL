@@ -113,7 +113,12 @@
         </view>
         <button formType="submit" class='btn_lang'>立即发布</button>
     </form>
-    <button formType="submit" class='btn_lang' style="background-color:#5a5a5a;">登录 | 注册</button>
+   
+  
+        <navigator  class='btn_lang' style="background-color:#5a5a5a;" open-type="switchTab" url="/pages/login/login">
+            <text>登录 | 注册</text>
+        </navigator>
+    
 </view>
 
 <view class='main dbinfo'>

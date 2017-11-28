@@ -65,17 +65,21 @@ var api = {
         if (arguments.length === 2) {
             var data = {};
             var func = arguments[1];
-        } else if (arguments.length===3){
+        } else if (arguments.length === 3) {
             var data = arguments[1];
             var func = arguments[2];
-        }else{
-            console.error("api.get 参数异常 ===>",arguments)
+        } else {
+            console.error("api.get 参数异常 ===>", arguments)
             return;
         }
         wx.request({
             url: apiName(arguments[0]),
             method: 'GET',
             data: data,
+            dataType: "json",
+            header: {
+                'content-type': 'application/x-www-form-urlencoded'
+            },
             success: function (e) {
                 func(e.data)
             }
@@ -86,16 +90,20 @@ var api = {
         if (arguments.length === 2) {
             var data = {};
             var func = arguments[1];
-        } else if (arguments.length===3){
+        } else if (arguments.length === 3) {
             var data = arguments[1];
             var func = arguments[2];
-        }else{
-            console.error("api.get 参数异常 ===>",arguments)
+        } else {
+            console.error("api.get 参数异常 ===>", arguments)
             return;
         }
         wx.request({
             url: apiName(arguments[0]),
             method: 'POST',
+            dataType: "json",
+            header: {
+                'content-type': 'application/x-www-form-urlencoded'
+            },
             data: data,
             success: function (e) {
                 func(e.data)

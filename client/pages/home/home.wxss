@@ -63,15 +63,6 @@
     color: #f54203;
 }
 
-.btn_lang {
-    background-color: #f54203;
-    border-radius: 0rpx;
-    height: 73rpx;
-    line-height: 73rpx;
-    font-size: 26rpx;
-    margin: 15rpx 0;
-    color: #fff;
-}
 .hr{
     background-color: #f7f7f7;
     height: 10rpx;

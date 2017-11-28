@@ -1,4 +1,3 @@
-var util = require('../../utils/util')
 Page({
 
     /**
@@ -10,7 +9,7 @@ Page({
     },
     getRecommendDesigner: function () {
         var that = this
-        util.api.get(
+        getApp()["api"].get(
             '/app/index/recommend',
             function (e) {
                 if (e.status != 200) {
