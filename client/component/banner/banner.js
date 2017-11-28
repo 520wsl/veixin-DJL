@@ -30,7 +30,7 @@ options:{
    */
   ready: function (options) {
     this.getBanner()
-    console.log(getApp)
+    console.log(getApp())
   },
   /**
    * 组件的方法列表

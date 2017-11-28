@@ -61,60 +61,46 @@ var apiName = function (urlName = '') {
  */
 var api = {
     get: function () {
-        if (arguments.length == 2) {
-            let func = arguments[1];
-            wx.request({
-                url: apiName(arguments[0]),
-                method: 'GET',
-                success: function (e) {
-                    func(e.data)
-                }
-            })
+        var url = arguments[0];
+        if (arguments.length === 2) {
+            var data = {};
+            var func = arguments[1];
+        } else if (arguments.length===3){
+            var data = arguments[1];
+            var func = arguments[2];
+        }else{
+            console.error("api.get 参数异常 ===>",arguments)
             return;
         }
-
-        if (arguments.length == 3) {
-            let func = arguments[2];
-            wx.request({
-                url: apiName(arguments[0]),
-                method: 'GET',
-                data: arguments[1],
-                success: function (e) {
-                    func(e.data);
-                }
-            })
-            return;
-        }
-        console.error("api.get 参数异常 ===>")
-        console.error(arguments)
+        wx.request({
+            url: apiName(arguments[0]),
+            method: 'GET',
+            data: data,
+            success: function (e) {
+                func(e.data)
+            }
+        })
     },
     post: function () {
-        if (arguments.length == 2) {
-            let func = arguments[1];
-            wx.request({
-                url: apiName(arguments[0]),
-                method: 'POST',
-                success: function (e) {
-                    func(e.data)
-                }
-            })
+        var url = arguments[0];
+        if (arguments.length === 2) {
+            var data = {};
+            var func = arguments[1];
+        } else if (arguments.length===3){
+            var data = arguments[1];
+            var func = arguments[2];
+        }else{
+            console.error("api.get 参数异常 ===>",arguments)
             return;
         }
-
-        if (arguments.length == 3) {
-            let func = arguments[2];
-            wx.request({
-                url: apiName(arguments[0]),
-                method: 'POST',
-                data: arguments[1],
-                success: function (e) {
-                    func(e.data);
-                }
-            })
-            return;
-        }
-        console.error("api.post 参数异常 ===>")
-        console.error(arguments)
+        wx.request({
+            url: apiName(arguments[0]),
+            method: 'POST',
+            data: data,
+            success: function (e) {
+                func(e.data)
+            }
+        })
     },
 }
 
