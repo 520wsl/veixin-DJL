@@ -115,7 +115,7 @@
     </form>
    
   
-        <navigator  class='btn_lang' style="background-color:#5a5a5a;" open-type="switchTab" url="/pages/login/login">
+        <navigator wx:if="{{!isLogin}}"  class='btn_lang' style="background-color:#5a5a5a;"  url="/pages/login/login">
             <text>登录 | 注册</text>
         </navigator>
     

@@ -45,17 +45,31 @@ Page({
           getApp().util.showModel("登录", e.msg)
           return;
         }
-        getApp().util.showSuccess("登录成功");
+        getApp().util.getUserInfo();
+        wx.showModal({
+          title:'登录',
+          content:'是否进入个人中心',
+          cancelText:'首页',
+          confirmText:'个人中心',
+          success:function (e) {
+              if(e.confirm){
+                  wx.switchTab({
+                      url: '/pages/personal/personal'
+                    })
+              }
+              if(e.cancel){
+                  wx.switchTab({
+                      url: '/pages/home/home'
+                    })
+              }
+          }
+      })
         that.setData({
-          username:'',
-          pwd:''
-        })
-        wx.switchTab({
-          url: '/pages/home/home'
+          username: '',
+          pwd: ''
         })
       }
     )
-
     console.log('form发生了submit事件，携带数据为：', e.detail)
   },
   formReset: function () {
@@ -65,10 +79,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
     // wx.login({
     //   success: function(e) {
-        
+
     //     if(e.code){
     //       console.log(e)
     //     }else{
@@ -76,7 +90,7 @@ Page({
     //     }
     //   }
     // })
- 
+
   },
 
   /**
@@ -91,11 +105,11 @@ Page({
    */
   onShow: function () {
     wx.checkSession({
-      success: function(){
+      success: function () {
         //session 未过期，并且在本生命周期一直有效
         console.log("session 未过期，并且在本生命周期一直有效")
       },
-      fail: function(){
+      fail: function () {
         //登录态过期
         // wx.login() //重新登录
         console.log("登录态过期")

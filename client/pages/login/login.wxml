@@ -1,6 +1,6 @@
 <view class="main">
     <view class="logo">
-        <image src="http://5.img.dianjiangla.com/assets/h5/logo.png" />
+        <image mode="aspectFit" src="http://5.img.dianjiangla.com/assets/h5/logo.png" />
     </view>
     <form bindsubmit="formSubmit">
         <view class="form">

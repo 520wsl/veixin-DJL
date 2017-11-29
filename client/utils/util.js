@@ -15,6 +15,9 @@ const formatNumber = n => {
     return n[1] ? n : '0' + n
 }
 
+// Storage 用户信息 key
+const userInfoKey = "userInfo"
+
 
 // 显示繁忙提示
 var showBusy = text => wx.showToast({
@@ -60,6 +63,12 @@ var apiName = function (urlName = '') {
  * @param {成功的回调方法} successcallBack
  */
 var api = {
+    cookie: '',
+    setCookie: (respone) => {
+        if (respone.header['Set-Cookie']) {
+            api.cookie = respone.header['Set-Cookie'];
+        }
+    },
     get: function () {
         var url = arguments[0];
         if (arguments.length === 2) {
@@ -78,9 +87,11 @@ var api = {
             data: data,
             dataType: "json",
             header: {
-                'content-type': 'application/x-www-form-urlencoded'
+                'content-type': 'application/x-www-form-urlencoded',
+                'Cookie': api.cookie || ''
             },
             success: function (e) {
+                api.setCookie(e);
                 func(e.data)
             }
         })
@@ -102,14 +113,93 @@ var api = {
             method: 'POST',
             dataType: "json",
             header: {
-                'content-type': 'application/x-www-form-urlencoded'
+                'content-type': 'application/x-www-form-urlencoded',
+                'Cookie': api.cookie || ''
             },
             data: data,
             success: function (e) {
+                api.setCookie(e);
                 func(e.data)
             }
         })
     },
 }
 
-module.exports = { formatTime, showBusy, showSuccess, showModel, api }
+// 获取登录信息
+var getUserInfo = function () {
+    api.get(
+        "/user/info",
+        function (e) {
+            console.log(e)
+            if (e.status != 200) {
+                showModel('用户信息', e.msg)
+                return;
+            }
+            getApp().isLogin = true
+            wx.setStorage({
+                key: userInfoKey,
+                data: e.data
+            })
+        }
+    )
+}
+
+// 获取登录状态
+var getLoginState = function () {
+    let that = this;
+    api.get(
+        '/auth/login/status',
+        { timestamp: Date.now() },
+        function (e) {
+            if (e.status != 200) {
+                removeUserInfo()
+                return;
+            }
+
+            getUserInfo();
+
+        }
+    )
+}
+
+// 退出登录
+var outLogin = function () {
+    api.post(
+        '/auth/logout',
+        function (e) {
+            if (e.status != 200) {
+                showModel('退出登录', e.msg)
+                return ;
+            }
+            removeUserInfo()
+            wx.showModal({
+                title:'退出登录',
+                content:'退出登录成功，是否进入首页？',
+                cancelText:'重新登录',
+                confirmText:'首页',
+                success:function (e) {
+                    if(e.confirm){
+                        wx.switchTab({
+                            url: '/pages/home/home'
+                          })
+                    }
+                    if(e.cancel){
+                        wx.redirectTo({
+                            url: '/pages/login/login'
+                          })
+                    }
+                }
+            })
+        }
+    )
+}
+
+// 清除 用户信息 Storage
+var removeUserInfo = function () {
+    getApp().isLogin = false
+    wx.removeStorage({
+        key: userInfoKey
+    })
+}
+
+module.exports = { formatTime, showBusy, showSuccess, showModel, api, getUserInfo, getLoginState, outLogin }

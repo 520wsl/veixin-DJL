@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/personal/personal",
         "pages/home/home",
         "pages/login/login",
         "pages/index/index",
@@ -28,12 +29,12 @@
                 "text": "案例首页"
             },
             {
-                "pagePath": "pages/login/login",
-                "text": "登录页"
+                "pagePath": "pages/addCgi/addCgi",
+                "text": "addCgi"
             },
             {
-                "pagePath": "pages/addCgi/addCgi",
-                "text": "CGI界面"
+                "pagePath": "pages/personal/personal",
+                "text": "个人中心"
             }
         ]
     },

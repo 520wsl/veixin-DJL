@@ -6,6 +6,7 @@ Page({
     data: {
         isShowRecommendDesigner: false,
         recommendDesigners: [],
+        isLogin:false
     },
     getRecommendDesigner: function () {
         var that = this
@@ -23,27 +24,9 @@ Page({
                     isShowRecommendDesigner: true,
                     recommendDesigners: e.data,
                 })
+                getApp().util.getLoginState();
             }
         )
-        // wx.request({
-        //     url: util.api('/app/index/recommend'),
-        //     method: 'GET',
-        //     data: {},
-        //     success: function (e) {
-        //         if (e.data.status != 200) {
-        //             that.setData({
-        //                 isShowRecommendDesigner: false,
-        //                 recommendDesigners: [],
-        //             })
-        //             return;
-        //         }
-        //         that.setData({
-        //             isShowRecommendDesigner: true,
-        //             recommendDesigners: e.data.data,
-        //         })
-
-        //     }
-        // })
     },
 
     /**
@@ -57,14 +40,17 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+       
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        console.error('aa',getApp().isLogin)
+        this.setData({
+            isLogin:getApp().isLogin
+        })
     },
 
     /**

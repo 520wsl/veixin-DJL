@@ -1,0 +1,91 @@
+<view class="userinfo">
+    <view class="info">
+        <view class="pic_user">
+            <image mode="aspectFit" src="http://4.img.dianjiangla.com/assets/user.png" />
+        </view>
+        <view class="title">
+            <view class="name">
+                <text>13625719920</text>
+            </view>
+            <view class="phone">
+                <text>手机号:23265655136</text>
+            </view>
+        </view>
+        <view class="pic">
+            <image mode="aspectFit" src="http://4.img.dianjiangla.com/assets/h5/grzx/userarrow.png" />
+        </view>
+    </view>
+    <view class="moneyinfo">
+        <view class="money">
+            <view class="title">
+                <text>账户余额</text>
+            </view>
+            <view>
+                <text class="num">0</text>
+                <text class="txt">元</text>
+            </view>
+        </view>
+        <view class="hr">
+
+        </view>
+        <view class="money">
+            <view class="title">
+                <text>平台监管金额</text>
+            </view>
+            <view>
+                <text class="num">0</text>
+                <text class="txt">元</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="main">
+
+
+    <view class="list-item">
+        <view class="icon">
+            <image mode="aspectFit" src="http://4.img.dianjiangla.com/assets/h5/grzx/demand.png" />
+        </view>
+        <view class="title">
+            <text>需求记录</text>
+        </view>
+        <view class="txt">
+            <text>></text>
+        </view>
+    </view>
+    <view class="list-item">
+        <view class="icon">
+            <image mode="aspectFit" src="http://2.img.dianjiangla.com/assets/h5/grzx/employ.png" />
+        </view>
+        <view class="title">
+            <text>雇佣记录</text>
+        </view>
+        <view class="txt">
+            <text>></text>
+        </view>
+    </view>
+    <view class="list-item">
+        <view class="icon">
+            <image mode="aspectFit" src="http://2.img.dianjiangla.com/assets/h5/grzx/changelist.png" />
+        </view>
+        <view class="title">
+            <text>交易记录</text>
+        </view>
+        <view class="txt">
+            <text>></text>
+        </view>
+    </view>
+    <view class="list-item">
+        <view class="icon">
+            <image mode="aspectFit" src="http://3.img.dianjiangla.com/assets/h5/grzx/password.png" />
+        </view>
+        <view class="title">
+            <text>密码管理</text>
+        </view>
+        <view class="txt">
+            <text>></text>
+        </view>
+    </view>
+
+    <button wx:if="{{isLogin}}" bindtap="setoutLogin" class='btn_lang'>退出登录</button>
+</view>

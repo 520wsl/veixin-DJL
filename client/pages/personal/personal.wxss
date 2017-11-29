@@ -1,0 +1,104 @@
+.userinfo{
+    background: -webkit-gradient(linear, left top, left bottom, from(#f54102), to(#fe8e01));
+    background: linear-gradient(to bottom, #f54102, #fe8e01);
+    margin-bottom: 20rpx;
+    overflow: hidden;
+    font-size: 25rpx;
+    height: 420rpx;
+}
+.userinfo .info{
+    display: flex;
+    height: 210rpx;
+    justify-content: space-between;
+}
+.userinfo .info .pic_user{
+    width: 130rpx;
+    height: 130rpx;
+    border-radius: 50%;
+    margin: 40rpx 36rpx 18rpx;
+}
+
+.userinfo .info .pic_user image{
+    width: 130rpx;
+    height: 130rpx;
+}
+
+.userinfo .info .title{
+    flex: 1;
+    color: #fff;
+    align-self: center;
+}
+
+.userinfo .info .title .name{
+    font-size: 36rpx;
+    margin-bottom: 20rpx;
+}
+
+.userinfo .info .pic{
+    width: 25rpx;
+    height: 53rpx;
+    margin-right: 10rpx;
+    align-self: center;
+}
+.userinfo .info .pic image{
+    width: 25rpx;
+    height: 53rpx;
+}
+
+.userinfo .moneyinfo{
+    margin-top: 35rpx;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    justify-content: space-between;
+}
+.userinfo .moneyinfo .money{
+    flex: 1;
+}
+.userinfo .moneyinfo .money .title{
+    font-size: 26rpx;
+}
+.userinfo .moneyinfo .money .num{
+    font-size: 54rpx;
+}
+.userinfo .moneyinfo .money .txt{
+    font-size: 30rpx;
+}
+.userinfo .moneyinfo .hr{
+    height: 70rpx;
+    border-left: 1px solid #fff;
+    align-self: center;
+}
+
+.list-item{
+    display: flex;
+    align-items: center;
+    height: 88rpx;
+    border-bottom: 1px solid #e4e4e4;
+    padding: 0 18rpx;
+}
+.list-item .icon{
+    width: 45rpx;
+    height: 70rpx;
+    align-self: center;
+}
+.list-item .icon image{
+    width: 45rpx;
+    height: 70rpx;
+}
+.list-item .title{
+    margin-left: 25rpx;
+    font-size: 28rpx;
+    flex: 1;
+    color: #5a5a5a;
+}
+.list-item .txt{
+    font-size: 35rpx;
+    color: #dfdfdf;
+}
+.btn_lang{
+    position: absolute;
+    width: 650rpx;
+    bottom: 0;
+}
