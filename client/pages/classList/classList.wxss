@@ -1,0 +1,9 @@
+/* pages/classList/classList.wxss */
+.item-list{
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    font-size: 26rpx;
+    color: #5a5a5a;
+    height: 68rpx;
+    line-height: 68rpx;
+}

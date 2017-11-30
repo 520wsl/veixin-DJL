@@ -1,0 +1,3 @@
+<search bindsearch="search"></search>
+<!-- 导航 -->
+<navCategory data-page-type="designerSelect"></navCategory>

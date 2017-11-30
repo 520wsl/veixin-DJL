@@ -1,0 +1,6 @@
+<view class="main">
+<view class="item-list" bindtap="getNum" data-key='0' data-title="{{item.name}}" ><text>全部</text></view>
+<block wx:for="{{classList}}" wx:key="{{index}}">
+    <view class="item-list" bindtap="getNum" data-key="{{item.id}}" data-title="{{item.name}}"><text>{{item.name}}</text></view>
+</block>
+</view>

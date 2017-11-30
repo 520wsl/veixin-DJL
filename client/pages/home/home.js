@@ -10,7 +10,7 @@ Page({
     },
     getRecommendDesigner: function () {
         var that = this
-        getApp()["api"].get(
+        getApp().api.get(
             '/app/index/recommend',
             function (e) {
                 if (e.status != 200) {

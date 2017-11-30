@@ -202,4 +202,22 @@ var removeUserInfo = function () {
     })
 }
 
-module.exports = { formatTime, showBusy, showSuccess, showModel, api, getUserInfo, getLoginState, outLogin }
+// 获取行业类目
+var getCla2 = function(){
+    api.get(
+        '/class/child',
+        {pid:4},
+        function(e){
+            if(e.status != 200){
+                console.error('行业类目获取：',e.msg)
+                return ;
+            }
+            wx.setStorage({
+                key: "cla2",
+                data: e.data
+            })
+        }
+    )
+}
+
+module.exports = { formatTime, showBusy, showSuccess, showModel, api, getUserInfo, getLoginState, outLogin,getCla2 }

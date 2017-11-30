@@ -1,11 +1,12 @@
 {
     "pages": [
+        "pages/designer/designer",
         "pages/home/home",
         "pages/personal/personal",
         "pages/login/login",
         "pages/index/index",
-        "pages/addCgi/addCgi"
-        
+        "pages/addCgi/addCgi",
+        "pages/classList/classList"
     ],
     "window": {
         "backgroundColor": "#f54203",
@@ -22,19 +23,27 @@
         "list": [
             {
                 "pagePath": "pages/home/home",
-                "text": "首页"
+                "text": "首页",
+                "iconPath": "images/home.png",
+                "selectedIconPath": "images/home2.png"
             },
             {
-                "pagePath": "pages/index/index",
-                "text": "所有设计师"
+                "pagePath": "pages/designer/designer",
+                "text": "所有设计师",
+                "iconPath": "images/all-designer.png",
+                "selectedIconPath": "images/all-designer2.png"
             },
             {
                 "pagePath": "pages/addCgi/addCgi",
-                "text": "addCgi"
+                "text": "所有作品",
+                "iconPath": "images/all-works.png",
+                "selectedIconPath": "images/all-works2.png"
             },
             {
                 "pagePath": "pages/personal/personal",
-                "text": "个人中心"
+                "text": "个人中心",
+                "iconPath": "images/personal.png",
+                "selectedIconPath": "images/personal2.png"
             }
         ]
     },
