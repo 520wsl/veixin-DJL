@@ -24,7 +24,7 @@ Page({
               })
         }
         if(e.confirm){
-            wx.redirectTo({
+            wx.navigateTo({
                 url: '/pages/login/login'
               })
         }
@@ -42,14 +42,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setLoginStatus()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.setLoginStatus()
   },
 
   /**

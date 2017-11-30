@@ -184,7 +184,7 @@ var outLogin = function () {
                           })
                     }
                     if(e.cancel){
-                        wx.redirectTo({
+                        wx.navigateTo({
                             url: '/pages/login/login'
                           })
                     }
