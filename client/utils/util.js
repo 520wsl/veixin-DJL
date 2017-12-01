@@ -1,4 +1,5 @@
 var config = require('../config')
+var moment = require('./moment.min')
 const formatTime = date => {
     const year = date.getFullYear()
     const month = date.getMonth() + 1
@@ -169,24 +170,24 @@ var outLogin = function () {
         function (e) {
             if (e.status != 200) {
                 showModel('退出登录', e.msg)
-                return ;
+                return;
             }
             removeUserInfo()
             wx.showModal({
-                title:'退出登录',
-                content:'退出登录成功，是否进入首页？',
-                cancelText:'重新登录',
-                confirmText:'首页',
-                success:function (e) {
-                    if(e.confirm){
+                title: '退出登录',
+                content: '退出登录成功，是否进入首页？',
+                cancelText: '重新登录',
+                confirmText: '首页',
+                success: function (e) {
+                    if (e.confirm) {
                         wx.switchTab({
                             url: '/pages/home/home'
-                          })
+                        })
                     }
-                    if(e.cancel){
+                    if (e.cancel) {
                         wx.navigateTo({
                             url: '/pages/login/login'
-                          })
+                        })
                     }
                 }
             })
@@ -203,14 +204,14 @@ var removeUserInfo = function () {
 }
 
 // 获取行业类目
-var getCla2 = function(){
+var getCla2 = function () {
     api.get(
         '/class/child',
-        {pid:4},
-        function(e){
-            if(e.status != 200){
-                console.error('行业类目获取：',e.msg)
-                return ;
+        { pid: 4 },
+        function (e) {
+            if (e.status != 200) {
+                console.error('行业类目获取：', e.msg)
+                return;
             }
             wx.setStorage({
                 key: "cla2",
@@ -220,4 +221,4 @@ var getCla2 = function(){
     )
 }
 
-module.exports = { formatTime, showBusy, showSuccess, showModel, api, getUserInfo, getLoginState, outLogin,getCla2 }
+module.exports = { formatTime, showBusy, showSuccess, showModel, api, getUserInfo, getLoginState, outLogin, getCla2, moment }

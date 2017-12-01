@@ -2,7 +2,7 @@
     <block wx:for="{{categoryList}}" wx:if="{{index < 5}}" wx:key="{{item.id}}">
         <navigator open-type="navigate" url="/pages/classList/classList?type={{item.type}}&pageType={{pageType}}" class="item-select">
                 <view class="title">
-                    <text>{{item.title}}</text>
+                    <text>{{item.title}}   {{pageType}}{{time}}</text>
                 </view>
                 <view class="pic">
                     <image mode="aspectFit" src="http://2.img.dianjiangla.com/assets/app/icon_down.png"></image>
