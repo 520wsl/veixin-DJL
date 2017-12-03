@@ -6,26 +6,77 @@ Page({
      */
     data: {
         pageType: 'designerSelect',
-        tiemTxt:0
+        tiemTxt: 0,
+        params: {
+            classId: '',// 行业
+            rank: '',// 级别
+            gender: '',//性别
+            name: '',// 设计师关键词
+            pageNum: 1,
+            pageSize: 20,
+            count:0
+        },
+        dataList:[]
     },
     search: function (e) {
-        this.setData({
-            pageType: e.detail.input
-        })
         console.log(e.detail.input)
+        this.setData({
+            'params.name': e.detail.input || ''// 设计师关键词
+        })
+        this.setParams();
     },
-    setTime:function(){
+    setParams: function () {
+        let that = this;
+        wx.getStorage({
+            key: that.data.pageType,
+            success: function (e) {
+                console.log(e.data)
+                if (e.data == undefined) {
+                    return;
+                }
+                let classId = e.data[0]['key'] == -1 ? '' : e.data[0]['key'];// 行业
+                let gender = e.data[1]['key'] == -1 ? '' : e.data[1]['key'];// 性别
+                let rank = e.data[2]['key'] == -1 ? '' : e.data[2]['key'];// 级别
+
+                that.setData({
+                    'params.classId': classId,
+                    'params.rank': rank,
+                    'params.gender': gender
+                })
+                console.log('设计师列表，选中数据', that.data.params)
+                that.getList();
+            }
+        })
+    },
+    setTime: function () {
         let tiemTxt = getApp().moment().format('X');
         this.setData({
             tiemTxt: tiemTxt
         })
-        // console.error(getApp().moment().format('X'))
+    },
+    getList(){
+        let that=this;
+        getApp().api.get(
+            '/app/designer/list',
+            that.data.params,
+            function(e){
+                console.log('设计师列表数据getlist',e)
+                if(e.status != 200){
+                    getApp().util.showModel('设计师列表',e.msg)
+                    return ;
+                }
+                that.setData({
+                    dataList:e.data.list,
+                    'params.count': e.data.count
+                })
+            }
+        )
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        
+
     },
 
     /**
@@ -39,8 +90,8 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
         this.setTime()
+        this.setParams()
     },
 
     /**

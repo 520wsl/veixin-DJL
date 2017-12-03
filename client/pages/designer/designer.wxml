@@ -1,3 +1,24 @@
 <search bindsearch="search"></search>
 <!-- 导航 -->
 <navCategory tiemTxt="{{tiemTxt}}" pageType="{{pageType}}"></navCategory>
+
+<block wx:for="{{dataList}}" wx:key="{{item.user_id}}">
+    <view>
+        <view>
+            <image mode="aspectFit" src='{{item.image_url}}' alt="{{item.realname}}"></image>
+        </view>
+        <view>
+            <view>
+                <view><text>{{item.realname}}</text></view>
+                <view>
+                <image wx:if="{{item.gender == 0}}" mode="aspectFit" src='http://4.img.dianjiangla.com/assets/icon/male.png'></image>
+                <image wx:else mode="aspectFit" src='http://1.img.dianjiangla.com/assets/icon/female.png'></image>
+                <image mode="aspectFit" src='http://4.img.dianjiangla.com/assets/icon/security.png'></image>
+                <image mode="aspectFit" src='http://1.img.dianjiangla.com/assets/icon/certification.png'></image>
+                <image mode="aspectFit" src='http://5.img.dianjiangla.com/assets/icon/{{item.rank}}.png'></image>
+                </view>
+            </view>
+
+        </view>
+    </view>
+</block>

@@ -221,4 +221,21 @@ var getCla2 = function () {
     )
 }
 
-module.exports = { formatTime, showBusy, showSuccess, showModel, api, getUserInfo, getLoginState, outLogin, getCla2, moment }
+// 作品区域获取
+var getRegion = function () {
+    api.get(
+        '/type/list',
+        function (e) {
+            if (e.status != 200) {
+                console.error('作品区域获取：', e.msg)
+                return;
+            }
+            wx.setStorage({
+                key: "region",
+                data: e.data
+            })
+        }
+    )
+}
+
+module.exports = { formatTime, showBusy, showSuccess, showModel, api, getUserInfo, getLoginState, outLogin, getCla2, getRegion, moment }

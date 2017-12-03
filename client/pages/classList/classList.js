@@ -9,20 +9,23 @@ Page({
         type: '',
         pageType: '',
         title: '',
-        menu:{
+        listName: '',
+        menu: {
             'designerSelect': ['按行业', '按性别', '按级别'],
             'prolistSelect': ['按行业', '按区域', '按级别']
         }
     },
-    getNum(e) {
+    setNum(e) {
         console.log('选中参数', e.currentTarget.dataset.key)
         console.log('选中参数', e.currentTarget.dataset.title)
         let that = this;
         let key = e.currentTarget.dataset.key || 0;
         let title = e.currentTarget.dataset.title || '全部';
         let status = [];
+        let pageType = this.data.pageType || '';
+        let dataType = this.data.type || 0;
         wx.getStorage({
-            key: that.data.pageType,
+            key: pageType,
             success: function (e) {
                 console.log(e.data)
                 if (e.data == undefined) {
@@ -30,13 +33,19 @@ Page({
                 }
                 status = e.data;
                 console.log(status)
-                status[that.data.type].key = key;
-                status[that.data.type].title = title;
+                status[dataType].key = key;
+                status[dataType].title = title;
 
                 wx.setStorage({
-                    key: that.data.pageType,
-                    data: status
+                    key: pageType,
+                    data: status,
+                    success: function () {
+                        wx.navigateBack({
+                            delta: 1
+                        })
+                    }
                 })
+
             }
         })
 
@@ -52,46 +61,27 @@ Page({
             this.setData({
                 type: options.type,
                 title: that.data.menu[options.pageType][options.type],
-                pageType: options.pageType
+                pageType: options.pageType,
+                listName: options.listName
             })
         }
-        // this.getCla2()
-        this.getGender();
-       
-
+        this.getClassList();
     },
-    getCla2(){
+    getClassList() {
         let that = this;
         wx.getStorage({
-            key: 'cla2',
+            key: that.data.listName,
             success: function (e) {
-                console.log('缓存中取出的cla2', e.data)
+                console.log('缓存中取出的' + that.data.listName, e.data)
                 that.setData({
                     classList: e.data
                 })
             },
             fail: function (e) {
-                console.error('缓存中取出的cla2', e)
+                console.error('缓存中取出的' + that.data.listName, e)
             }
         })
     },
-
-    getGender() {
-        let that = this;
-        wx.getStorage({
-            key: 'gender',
-            success: function (e) {
-                console.log('缓存中取出的cla2', e.data)
-                that.setData({
-                    classList: e.data
-                })
-            },
-            fail: function (e) {
-                console.error('缓存中取出的cla2', e)
-            }
-        })
-    },
-
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

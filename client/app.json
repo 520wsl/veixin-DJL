@@ -2,6 +2,8 @@
     "pages": [
         "pages/designer/designer",
         "pages/home/home",
+        
+        "pages/product/product",
         "pages/personal/personal",
         "pages/login/login",
         "pages/index/index",
@@ -34,7 +36,7 @@
                 "selectedIconPath": "images/all-designer2.png"
             },
             {
-                "pagePath": "pages/addCgi/addCgi",
+                "pagePath": "pages/product/product",
                 "text": "所有作品",
                 "iconPath": "images/all-works.png",
                 "selectedIconPath": "images/all-works2.png"
